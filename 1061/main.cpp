@@ -1,45 +1,21 @@
 #include <iostream>
+#include <cstdio>
 #include <string>
-#include <regex>
 
 using namespace std;
-using namespace std::regex_constants;
 
 int main()
 {
-	string line;
-	smatch sm;
+	int dayI, hourI, minI, secI;
+	int dayF, hourF, minF, secF;
+	char dd[4];
+	char d1, d2;
 
-	regex day("^Dia (\\d+)$");
-	regex hour("^(\\d+) : (\\d+) : (\\d+)$");
-
-	getline(cin, line);
-	regex_match(line, sm, day);
-
-	int dayI;
-	dayI = stoi(sm[1]);
-
-	getline(cin, line);
-	regex_match(line, sm, hour);
-
-	int hourI, minI, secI;
-	hourI = stoi(sm[1]);
-	minI  = stoi(sm[2]);
-	secI  = stoi(sm[3]);
-
-	getline(cin, line);
-	regex_match(line, sm, day);
-
-	int dayF;
-	dayF = stoi(sm[1]);
-
-	getline(cin, line);
-	regex_match(line, sm, hour);
-
-	int hourF, minF, secF;
-	hourF = stoi(sm[1]);
-	minF  = stoi(sm[2]);
-	secF  = stoi(sm[3]);
+	scanf("%s %d", dd, &dayI);
+	scanf("%d %c %d %c %d", &hourI, &d1, &minI, &d2, &secI);
+	fflush(stdin);
+	scanf("%s %d", dd, &dayF);
+	scanf("%d %c %d %c %d", &hourF, &d1, &minF, &d2, &secF);
 
 	int dayD, hourD, minD, secD;
 	if (secF < secI) {
