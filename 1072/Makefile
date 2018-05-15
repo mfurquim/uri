@@ -43,29 +43,26 @@ TARGET=$(NAME)
 
 C_EXISTS:=$(shell [ -e $(shell pwd)/main.c ] && echo 1 || echo 0 )
 
-.ONESHELL:
 print: diff
 	@cat main.c*
 
-.ONESHELL:
-diff: compile
+diff: execute
 	@diff result.txt output.txt
 
-.ONESHELL:
+execute: compile
+	@-rm -f result.txt
+	@cat input.txt | ./$(TARGET) > result.txt
+
 compile:
 ifeq ($(C_EXISTS), 1)
 	@$(MAKE) --no-print-directory c99
 else
-	$(MAKE) --no-print-directory cpp
+	@$(MAKE) --no-print-directory cpp
 endif
-	-rm -f result.txt
-	cat input.txt | ./$(TARGET) > result.txt
 
-.ONESHELL:
 c99:
 	@$(CC)  -o $(TARGET) main.c   $(C99FLAGS) $(CFLAGS) $(LFLAGS)
 
-.ONESHELL:
 cpp:
 	@$(CPP) -o $(TARGET) main.cpp $(CPPFLAGS) $(CFLAGS) $(LFLAGS)
 
