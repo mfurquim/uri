@@ -1,14 +1,9 @@
-#include <iostream>     // std::cout, std::fixed
-#include <iomanip>      // std::setprecision
+#include <stdio.h>
 
 int main()
 {
 
-	for (float i = 0; i < 2.1; i+=0.2) {
-		for (float j = i + 1; j <= i + 3; j++) {
-			std::cout << std::setprecision(2) << "I=" << i << " J=" << std::setprecision(2) << j << "\n";
-		}
-	}
+	printf("I=0 J=1\nI=0 J=2\nI=0 J=3\nI=0.2 J=1.2\nI=0.2 J=2.2\nI=0.2 J=3.2\nI=0.4 J=1.4\nI=0.4 J=2.4\nI=0.4 J=3.4\nI=0.6 J=1.6\nI=0.6 J=2.6\nI=0.6 J=3.6\nI=0.8 J=1.8\nI=0.8 J=2.8\nI=0.8 J=3.8\nI=1 J=2\nI=1 J=3\nI=1 J=4\nI=1.2 J=2.2\nI=1.2 J=3.2\nI=1.2 J=4.2\nI=1.4 J=2.4\nI=1.4 J=3.4\nI=1.4 J=4.4\nI=1.6 J=2.6\nI=1.6 J=3.6\nI=1.6 J=4.6\nI=1.8 J=2.8\nI=1.8 J=3.8\nI=1.8 J=4.8\nI=2 J=3\nI=2 J=4\nI=2 J=5\n");
 
 	return 0;
 }
